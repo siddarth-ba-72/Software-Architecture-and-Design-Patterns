@@ -75,18 +75,73 @@ In software engineering creational patterns provide various object creation mech
 ## II. Behavioral Design Patterns:
 In software engineering behavioral design patterns are design patterns that identify common communication patterns between objects. These patterns increase flexibility in carrying out the communication.
 ### 1. Strategy Design Pattern
+- Enable selecting an algorithm at run-time
+- Define a family of algorithms , put each of them into separate class, and make their objects interchangeable
+- Encapsulation is an important concept in OOP-Consider the classes and methods that varies and encapsulate it
+- Later we can change or update parts of the application that change frequently without affecting the static parts the actual run-time object should not be locked into the code the type of a variable should be abstract (interface or abstract class) – can be of any concrete implementation
+- The dependency inversion principle handles this problem
 ### 2. Observer Design Pattern
+- Defines one-to-many dependency between given objects or entities
+- So that when one object changes state all of its dependents are notified and update automatically
+- `Subject` is the object that is being monitored
+- `Observers`(or listeners) are depending on the `Subject`
+- Achieve loosely coupled software systems, having little knowledge of each other
+- Only thing that the subjects knows about the observer is that it implements a certain interface, we can add observers
+- No need to modify the `subject`, independently reuse subjects or observers
 ### 3. Command Design Pattern
+- Aim is to achieve separation of concerns
+- Loosely coupled design, the user interface components know nothing about the underlying business logic or the model
+- We can change the sender's behaviour during the run-time
+- So we can encapsulate requests as objects basically
+- Method invoking the computations knows nothing about the implementations
+- 4 components of command pattern -> `command`, `receiver`, `invoker`, `client`
+  - `Command`: It knows about receiver and invokes a method of the receiver. The values for parameters of the receiver method are stored in the command
+  - `Receiver`: It does the work itself
+  - `Invoker`: Knows how to execute a command and optionally does bookkeeping about the command execution. The invoker does not know anything about a concrete command it knows only about command interface
+  - `Client`: The client decides which command to execute. To execute a command it passes the command object to the invoker object
+- We can decouple classes that invoke the operations and classes that execute these operation
+- Add further commands without modifying existing code
+- Do not have to execute the commands, we can store these commands in a data structure
 ### 4. Iterator Design Pattern
+- We can access elements of a collection for example in sequential manner without any need to know about the underlying representation
+- Essentially it is useful when we want to iterate through elements with different types
+- The iterator pattern decouples the algorithms form the containers without the need for the underlying representation
 ### 5. Template Design Pattern
+- Subclasses will override the specific steps and decide the concrete behaviors of the modules
+- Bases on inheritance usually
+- Operates on class level which means it is static
 ### 6. Null Object Design Pattern
+- References(Objects) in Java may be null - which means empty objects essentially(we cannot do any operations)
+- It can be complicates to deal with null references to avoid `NullPointerException` - if-else statements and try-catch blocks
+- Good programming practice to avoid null references
 ### 7. Visitor Design Pattern
+- If we would like to do some specific operation on different entities, what if we want to save all the geometric shapes into a file?
+- Saving all shapes one-by-one violates single responsibility principle or open/closed principle
+- Way of separating an algorithm from an object structure on which it operates
 
 ## III. Structural Design Patterns:
+In software engineering structural design patterns are about how classes and objects can be composed to form larger structures. The structural design patterns simplifies the structure of software components by identifying the relationships between them.
 ### 1. Decorator Design Pattern
+- We would like to add or more behaviors dynamically
+- We can use inheritance but the problem is we cannot change the behaviors at run-time
+- In several languages every class must have just a single parent class
+- In decorator design patterns we can attach additional responsibilities to an object dynamically
+- Provide a flexible alternative to subclassing and for extending functionality
 ### 2. Facade Design Pattern
+- We would like to deal with a complicates library or framework - we have to initialize the framework related classes and handle all the dependencies
+- The problem would be classes may become tightly coupled to the implementation of the framework or library
+- Facade pattern provides a simple interface to the complicated framework or system
+- Has limited functionality but this is exactly the main advantage
 ### 3. Flyweight Design Pattern
+- We would like to minimize the memory usage by sharing as much as data as possible with similar objects
+- We create flyweight object and every single character refers to it
+- Minimizes memory usage by sharing as much data as possible with other similar objects
+- Suggests not to store the features in the given object
+- Objects storing the intrinsic states exclusively are called flyweights
 ### 4. Adapter Design Pattern
+- Allows objects with incompatible interfaces to collaborate and work together
+- It is often used to make existing classes work with others without modifying their source code
+- Legacy code cannot use several features in the exact same way
 
 ## IV. Service Locator Design Patterns:
 - used for obtaining the processes involved in obtaining a service with a strong abstraction layer
